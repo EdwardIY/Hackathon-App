@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
+import { Routes, Route } from "react-router-dom";
+import './index.css';
+import './store.css'
+import 'aos/dist/aos.css';
+
+import Home from './Pages/Home';
+import Store from './Pages/Store';
+import Footer from './Componets/Footer';
+
+
+
 
 function App() {
+  const [mobile, setMobile] = useState(false);
+
+
+  function toggleNav(val:boolean) {
+    setMobile(val)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <button aria-label="menu" style={{zIndex: mobile ? '3' : '-1', opacity: mobile ? '1' : '0'}} onClick={()=> toggleNav(false)} className="closeBtn">Close</button>
+    <button aria-label="menu" style={{zIndex: mobile ? '-1' : '3', opacity: mobile ? '0' : '1'}} onClick={()=> toggleNav(true)} className="openBtn">Open Menu</button>       
+        <Routes>
+  
+          <Route path='/' element={<Home setMobile = {setMobile} mobile = {mobile} />} />
+          <Route path='/store' element={<Store setMobile = {setMobile} mobile = {mobile} />} />
+
+        </Routes>
+    <Footer />
+    </>
   );
 }
 
