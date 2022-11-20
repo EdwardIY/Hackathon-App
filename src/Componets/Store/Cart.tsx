@@ -24,7 +24,7 @@ export default function Cart({ setActiveCart, activeCart, cart, updateCart }: Ca
 
     useEffect(() => {
         if (cart.length) {
-            const total = cart.reduce((total: number, val: CartItemFormat) => total + Number(val.price.slice(1)), 0);
+            const total = cart.reduce((total: number, val: CartItemFormat) => total + Number(val.price.slice(1)) * val.qty, 0);
             setTotal(total.toFixed(2))
         }
         else setTotal('0.00')
