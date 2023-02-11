@@ -30,7 +30,7 @@ export default function ItemPopUp(this: any, { selectedItem, setSelectedItem}: a
             <div className="details">
                     <span className="name"> {selectedItem.name}</span>
                 <span className="price">{selectedItem.price}</span>
-                    <select onChange={(e) => console.log(e.target.value)} dangerouslySetInnerHTML={{ __html: selectedItem.options }}>
+                    <select onChange={(e) => (e.target.value)} dangerouslySetInnerHTML={{ __html: selectedItem.options }}>
                 </select>
                 <div className="qtyToggle">
                     <button onClick={()=> setQuantity((prev:number)=> quantity > 1 ? prev - 1 : 1)}>

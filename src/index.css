@@ -462,7 +462,6 @@ header li:hover::after {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    width: 30%;
     padding: 0px;
     width: 400px;
 }
@@ -505,15 +504,19 @@ header li:hover::after {
     .eventSteps {
         flex-direction: column;
         align-items: flex-start;
+        padding: 0em 2em;
     }
 
     .eventStep {
         width: 100%;
+        justify-content: initial;
+        align-items: start;
     }
 
     .eventStep .stepNumber {
-        font-size: 50px;
+    font-size: 30px;
     min-width: 50px;
+    height: 50px;
     text-align: center;
     font-weight: bold;
     color: white;
@@ -708,7 +711,7 @@ transition: .3s;
   color:white;
   font-size: 18px;
   padding: .7em .4em;
-  width:200px
+  width:215px
 }
 
 .signUp-PopUpContainer div .submitPopUp {

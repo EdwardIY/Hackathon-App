@@ -55,8 +55,6 @@ export default function Cart({ setActiveCart, activeCart, cart, updateCart }: Ca
 
         <div className="cart" >
             {cart.map((item: CartItemFormat) => {
-                console.log(deleted)
-                console.log(item.id)
                 return <form key={item.id} className="detailsContainer" onSubmit={(e)=> handleDelete(e,item.id)}>
                     
                     <>

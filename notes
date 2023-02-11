@@ -1,0 +1,18 @@
+
+Figure out some features that you can add now that you have a sign in feature
+
+COMMENTS
+1. Add username feature
+2. no name or email input for  comments
+3. have username show in comments
+
+CART
+1. Have cart items be saved to user profile, so if they log out and log back in 
+the same items will be in their cart.
+
+Profile
+1. Welcome 'Username' in profile component
+
+
+Add username in update profile component
+Once username is added render in username field in dashboard

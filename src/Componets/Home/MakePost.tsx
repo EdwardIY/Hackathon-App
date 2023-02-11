@@ -1,19 +1,20 @@
 import GetPosts from "./GetPosts";
 
-import { initializeApp } from "firebase/app";
+// import { initializeApp } from "firebase/app";
+import app from "../../firebase";
 import { getDatabase, ref, set } from "firebase/database";
 // FireBase Setup
-const firebaseConfig = {
-    apiKey: "AIzaSyCFnKFOaeDVrWFcotnHGLqWKpABnCtqq08",
-    authDomain: "college-blog-38818.firebaseapp.com",
-    projectId: "college-blog-38818",
-    storageBucket: "college-blog-38818.appspot.com",
-    messagingSenderId: "821421394859",
-    appId: "1:821421394859:web:17934e0b4cf79d64c660ee",
-    measurementId: "G-5WWZ2RTHX5"
-  };
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const app = initializeApp(firebaseConfig);
+// const firebaseConfig = {
+//     apiKey: "AIzaSyCFnKFOaeDVrWFcotnHGLqWKpABnCtqq08",
+//     authDomain: "college-blog-38818.firebaseapp.com",
+//     projectId: "college-blog-38818",
+//     storageBucket: "college-blog-38818.appspot.com",
+//     messagingSenderId: "821421394859",
+//     appId: "1:821421394859:web:17934e0b4cf79d64c660ee",
+//     measurementId: "G-5WWZ2RTHX5"
+//   };
+//   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+//     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app)
 // 
 
@@ -31,16 +32,18 @@ export default async function MakePost(username: string, post: string, email: st
 
   // let id = 'post' + (Math.floor(Math.random() * 100000)).toString();
   
-    const reference  = ref(db, 'posts/' + id)
+  const reference = ref(db, 'comments/posts/' + id)
+  let date = {
+    month: months[new Date().getMonth()],
+    dayOfMonth: new Date().getDate(),
+    year: new Date().getFullYear()
+  }
+  
     if(email) {
-     await set(reference, {username,body: post, email})
+     await set(reference, {username,body: post, email,date})
     } 
     else {
-      await set(reference, {username,body: post,date: {
-        month: months[new Date().getMonth()],
-        dayOfMonth: new Date().getDate(),
-        year: new Date().getFullYear()
-      }})
+      await set(reference, {username,body: post,date})
     }
     
   }

@@ -1,8 +1,7 @@
     
 
 export default function CommentList({ data }: any) {
-    console.log(data);
-                console.log(data.posts)
+    console.log(data)
     return (
         <>
             {
