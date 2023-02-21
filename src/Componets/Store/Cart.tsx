@@ -61,7 +61,7 @@ export default function Cart({ setActiveCart, activeCart, cart, updateCart }: Ca
                         {deleted === item.id && <div className="cartMessage cartMessageRemoved">Removed!</div>}
                         
                         <img src={item.img} alt={item.name}/>
-                                <div>
+                                <div className='details'>
                                     <div className="n">{item.name}</div>
                                     <div className="s">{item.option.slice(0,1).toUpperCase() + item.option.slice(1) }</div>
                                     <div className="p">${(+item.price.slice(1) * item.qty).toFixed(2)}</div>

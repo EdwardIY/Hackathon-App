@@ -733,6 +733,7 @@
  .gender {
    margin-bottom: 10px;
  }
+
  
  .cartContainer {
    position: fixed;
@@ -789,9 +790,15 @@
  .detailsContainer {
    display: flex;
    justify-content: space-between;
+   /* justify-content: center; */
    font-size:14px;
    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
    position: relative;
+ }
+
+ .detailsContainer .details {
+  width: 300px;
+  margin-left: 1em;
  }
  
  .detailsContainer .n {
